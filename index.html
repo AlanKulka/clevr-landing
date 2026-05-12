@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Clevr — Software factory para pymes chilenas</title>
+<title>Clevr — Software development studio para pymes chilenas</title>
 <meta name="description" content="Construimos software a medida para pymes en nichos no digitalizados de Chile. Del papel y WhatsApp a un sistema propio en 2 semanas.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -732,6 +732,22 @@ footer p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.9}
   .wf-node{padding:10px 4px}
   .impact-tab{padding:7px 12px;font-size:11px}
 }
+
+/* ── BACK TO TOP (mobile only) ── */
+#topBtn{
+  display:none;
+  position:fixed;bottom:24px;right:20px;z-index:150;
+  width:42px;height:42px;border-radius:50%;
+  background:var(--indigo);color:#fff;border:none;
+  font-size:18px;cursor:pointer;
+  box-shadow:0 4px 16px rgba(249,115,22,.35);
+  align-items:center;justify-content:center;
+  opacity:0;transform:translateY(8px);
+  transition:opacity .3s,transform .3s
+}
+#topBtn.visible{opacity:1;transform:translateY(0)}
+#topBtn:hover{background:#EA580C}
+@media(max-width:768px){#topBtn{display:flex}}
 </style>
 </head>
 <body>
@@ -742,7 +758,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.9}
 <nav id="nav">
   <a href="#hero" class="logo">
     <span class="logo-text">clev<span>r</span></span>
-    <span style="font-size:12px;font-weight:500;color:var(--muted);letter-spacing:.3px;padding-left:8px;border-left:1px solid var(--border);margin-left:4px">software factory</span>
+    <span style="font-size:12px;font-weight:500;color:var(--muted);letter-spacing:.3px;padding-left:8px;border-left:1px solid var(--border);margin-left:4px">software development studio</span>
   </a>
   <ul>
     <li><a href="#problema">Problema</a></li>
@@ -1139,17 +1155,14 @@ footer p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.9}
       <div class="tc r d1">
         <div class="avatar">AB</div>
         <h3>Alberto Blanche</h3>
-        <p>Investment Analyst · Tantauco Ventures</p>
       </div>
       <div class="tc r d2">
         <div class="avatar av-o">BA</div>
         <h3>Benjamín Apt</h3>
-        <p>Strategy Lead · TGP</p>
       </div>
       <div class="tc r d3">
         <div class="avatar av-t">AK</div>
         <h3>Alan Kulka</h3>
-        <p>Strategic Projects · Global66</p>
       </div>
     </div>
   </div>
@@ -1206,10 +1219,12 @@ footer p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.9}
   </div>
 </section>
 
+<button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Volver al inicio">↑</button>
+
 <!-- FOOTER -->
 <footer>
   <div class="fl">clev<span>r</span></div>
-  <p>Software factory personalizada · Santiago, Chile · Pre-seed 2026</p>
+  <p>Software development studio · Santiago, Chile · Pre-seed 2026</p>
   <p>Fundado por Blanche · Apt · Kulka</p>
 </footer>
 
@@ -1225,6 +1240,7 @@ window.addEventListener('scroll',()=>{
   const sc=document.documentElement.scrollHeight-window.innerHeight;
   document.getElementById('progress').style.width=(window.scrollY/sc*100)+'%';
   document.getElementById('nav').classList.toggle('scrolled',window.scrollY>40);
+  document.getElementById('topBtn').classList.toggle('visible',window.scrollY>400);
 });
 
 /* ─── SMOOTH SCROLL HELPER ─── */
