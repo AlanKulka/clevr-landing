@@ -739,11 +739,11 @@ footer p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.9}
 
 /* ── BACK TO TOP (mobile only) ── */
 #topBtn{
-  display:none;
-  position:fixed;bottom:24px;right:20px;z-index:150;
-  width:42px;height:42px;border-radius:50%;
+  display:flex;
+  position:fixed;bottom:24px;right:24px;z-index:150;
+  width:38px;height:38px;border-radius:50%;
   background:var(--indigo);color:#fff;border:none;
-  font-size:18px;cursor:pointer;
+  font-size:16px;cursor:pointer;
   box-shadow:0 4px 16px rgba(249,115,22,.35);
   align-items:center;justify-content:center;
   opacity:0;transform:translateY(8px);
@@ -751,7 +751,6 @@ footer p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.9}
 }
 #topBtn.visible{opacity:1;transform:translateY(0)}
 #topBtn:hover{background:#EA580C}
-@media(max-width:768px){#topBtn{display:flex}}
 </style>
 </head>
 <body>
