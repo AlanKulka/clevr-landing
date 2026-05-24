@@ -15,7 +15,7 @@
   --bg2:#F1F3FC;
   --ink:#0A0F1E;
   --ink2:#2D3748;
-  --muted:#8896A8;
+  --muted:#5C6B7A;
   --indigo:#F97316;
   --indigo-l:#FFF7ED;
   --indigo-m:#FED7AA;
@@ -687,6 +687,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.9}
   .impact-cards{grid-template-columns:1fr}
 }
 @media(max-width:768px){
+  #neuralCanvas{display:none}
   nav{padding:14px 20px}
   nav ul{display:none}
   .nav-mobile-btn{display:block}
@@ -1546,7 +1547,7 @@ setTimeout(runDemo, 1500);
   }
 
   window.addEventListener('resize',()=>{ resize(); init(); });
-  resize(); init(); loop();
+  if(window.innerWidth > 768){ resize(); init(); loop(); }
 })();
 </script>
 </body>
