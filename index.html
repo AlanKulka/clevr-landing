@@ -1126,23 +1126,10 @@ footer p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.9}
     <div class="r" style="text-align:center;max-width:520px;margin:0 auto 40px">
       <p class="slabel">Empecemos</p>
       <h2>¿Cómo podemos<br><span class="i">ayudarte?</span></h2>
-      <p class="ssub" style="margin:0 auto">Selecciona tu rubro, déjanos tus datos y agenda una reunión con nosotros.</p>
-    </div>
-    <div class="rubro-grid r">
-      <button class="rubro-btn" data-rubro="Taller Automotriz">🔧 Taller Automotriz</button>
-      <button class="rubro-btn" data-rubro="Med Spa & Estética">💆 Med Spa & Estética</button>
-      <button class="rubro-btn" data-rubro="Restaurante">🍽️ Restaurante</button>
-      <button class="rubro-btn" data-rubro="Transporte">🚛 Transporte</button>
-      <button class="rubro-btn" data-rubro="Agricultura">🌾 Agricultura</button>
-      <button class="rubro-btn" data-rubro="Otro">✏️ Otro</button>
-    </div>
-    <div id="otro-wrap" style="display:none;max-width:480px;margin:-16px auto 24px">
-      <input type="text" id="f-otro" placeholder="¿Cuál es tu rubro?">
     </div>
     <div class="form-wrap r">
       <div id="form-fields">
         <form id="clevr-form">
-          <input type="hidden" name="rubro" id="f-rubro-hidden" value="No especificado">
           <div class="frow">
             <div class="fg">
               <label for="f-nombre">Tu nombre</label>
@@ -1152,6 +1139,18 @@ footer p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.9}
               <label for="f-email">Email de contacto</label>
               <input type="email" id="f-email" name="email" placeholder="juan@empresa.cl" required>
             </div>
+          </div>
+          <div class="fg">
+            <label for="f-rubro">¿De qué rubro es tu negocio?</label>
+            <select id="f-rubro" name="rubro" required>
+              <option value="" disabled selected>Selecciona tu rubro</option>
+              <option value="Taller Automotriz">🔧 Taller Automotriz</option>
+              <option value="Med Spa & Estética">💆 Med Spa & Estética</option>
+              <option value="Restaurante">🍽️ Restaurante</option>
+              <option value="Transporte">🚛 Transporte</option>
+              <option value="Agricultura">🌾 Agricultura</option>
+              <option value="Otro">✏️ Otro</option>
+            </select>
           </div>
           <div class="fg">
             <label for="f-proceso">¿Qué proceso quieres digitalizar? <span style="font-weight:400;color:var(--muted)">(opcional)</span></label>
@@ -1225,27 +1224,12 @@ document.querySelectorAll('.nc,.tc').forEach(card=>{
   });
 });
 
-/* ─── RUBRO SELECTOR ─── */
-let selectedRubro = '';
-document.querySelectorAll('.rubro-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.rubro-btn').forEach(b => b.classList.remove('selected'));
-    btn.classList.add('selected');
-    selectedRubro = btn.dataset.rubro;
-    document.getElementById('otro-wrap').style.display = selectedRubro === 'Otro' ? 'block' : 'none';
-  });
-});
-
 /* ─── FORMSPREE ─── */
 document.getElementById('clevr-form').addEventListener('submit', async function(e) {
   e.preventDefault();
   const btn = document.getElementById('form-submit-btn');
   btn.textContent = 'Enviando...';
   btn.disabled = true;
-
-  let rubroVal = selectedRubro || 'No especificado';
-  if (rubroVal === 'Otro') rubroVal = document.getElementById('f-otro').value.trim() || 'Otro';
-  document.getElementById('f-rubro-hidden').value = rubroVal;
 
   try {
     const res = await fetch('https://formspree.io/f/xykoarbl', {
