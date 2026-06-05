@@ -652,6 +652,13 @@ textarea{min-height:110px}
 .fsuccess .sico{font-size:52px;margin-bottom:14px}
 .fsuccess h3{font-size:26px;font-weight:800;color:var(--ink);margin-bottom:8px}
 .fsuccess p{color:var(--muted);font-size:15px;line-height:1.7;margin-bottom:24px}
+.cap-layout{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.cap-form-wrap{background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:20px;padding:36px;box-shadow:0 4px 24px rgba(0,0,0,.06)}
+.cap-features{display:flex;flex-direction:column;gap:20px}
+.cap-feat{display:flex;gap:14px;align-items:flex-start}
+.cap-icon{font-size:22px;flex-shrink:0;margin-top:2px}
+.cap-feat strong{display:block;font-size:15px;font-weight:700;color:var(--ink);margin-bottom:2px}
+.cap-feat p{font-size:14px;color:var(--muted);margin:0;line-height:1.5}
 
 /* ── RUBRO SELECTOR ── */
 .rubro-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:640px;margin:0 auto 32px}
@@ -736,6 +743,8 @@ footer p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.9}
   h2{font-size:clamp(28px,7vw,44px);letter-spacing:-1px}
   .form-wrap{padding:26px 18px}
   .frow{grid-template-columns:1fr}
+  .cap-layout{grid-template-columns:1fr!important;gap:36px}
+  .cap-form-wrap{padding:24px 18px}
   .hero-stats{gap:24px}
   .nichos-g{grid-template-columns:1fr!important}
   .team-g{grid-template-columns:1fr!important}
@@ -791,6 +800,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.9}
   </a>
   <ul>
     <li><a href="#equipo">Equipo</a></li>
+    <li><a href="#capacitaciones">Capacitaciones</a></li>
     <li><a href="#contacto" class="nav-cta">Habla con nosotros</a></li>
   </ul>
   <button class="nav-mobile-btn" onclick="scroll2('#contacto')">Habla con nosotros</button>
@@ -1139,6 +1149,76 @@ footer p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.9}
 
 <div class="div"></div>
 
+<!-- CAPACITACIONES -->
+<section id="capacitaciones" style="background:var(--bg)">
+  <div class="container">
+    <div class="cap-layout">
+      <div class="cap-info r">
+        <p class="slabel">Para tu equipo</p>
+        <h2>Capacitaciones de <span class="i">IA para empresas</span></h2>
+        <p class="ssub" style="margin-bottom:32px">Entrenamos a las personas de tu empresa para que usen inteligencia artificial en su trabajo diario. Sesiones personalizadas, adaptadas a tu rubro y a los procesos reales de tu negocio.</p>
+        <div class="cap-features">
+          <div class="cap-feat">
+            <span class="cap-icon">🎯</span>
+            <div>
+              <strong>100% personalizada</strong>
+              <p>Diseñamos el contenido según tu industria y los roles de tu equipo.</p>
+            </div>
+          </div>
+          <div class="cap-feat">
+            <span class="cap-icon">⚡</span>
+            <div>
+              <strong>Resultados inmediatos</strong>
+              <p>Tu equipo aplica lo aprendido desde el primer día.</p>
+            </div>
+          </div>
+          <div class="cap-feat">
+            <span class="cap-icon">🤝</span>
+            <div>
+              <strong>Para todos los niveles</strong>
+              <p>Sin importar el conocimiento técnico previo de tu equipo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cap-form-wrap r">
+        <p class="slabel">Cuéntanos</p>
+        <h3 style="font-size:22px;font-weight:700;margin-bottom:20px;color:var(--ink)">Diseñamos la capacitación<br>para tu empresa</h3>
+        <div id="cap-form-fields">
+          <form id="cap-form">
+            <div class="frow" style="margin-bottom:14px">
+              <div>
+                <label for="c-empresa">Nombre de la empresa</label>
+                <input type="text" id="c-empresa" name="empresa" placeholder="Ej: Taller López SpA" required>
+              </div>
+              <div>
+                <label for="c-personas">¿Cuántas personas?</label>
+                <input type="number" id="c-personas" name="personas" placeholder="Ej: 12" min="1" required>
+              </div>
+            </div>
+            <div style="margin-bottom:14px">
+              <label for="c-email">Tu email</label>
+              <input type="email" id="c-email" name="email" placeholder="tu@empresa.cl" required>
+            </div>
+            <div style="margin-bottom:20px">
+              <label for="c-objetivo">Objetivo de la capacitación</label>
+              <textarea id="c-objetivo" name="objetivo" rows="3" placeholder="Ej: Que mi equipo de ventas use IA para responder clientes más rápido..."></textarea>
+            </div>
+            <input type="hidden" name="tipo" value="capacitacion">
+            <button type="submit" class="fsubmit" id="cap-submit-btn" style="width:100%">Quiero capacitar a mi equipo →</button>
+          </form>
+        </div>
+        <div class="fsuccess" id="cap-success" style="display:none">
+          <p>✓ ¡Recibimos tu solicitud!</p>
+          <p style="font-size:15px;opacity:.7;margin-top:8px">Te contactamos en menos de 24 horas con una propuesta a medida.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
 <!-- CONTACTO -->
 <section id="contacto">
   <div class="container">
@@ -1258,6 +1338,32 @@ document.getElementById('clevr-form').addEventListener('submit', async function(
     }
   } catch(err) {
     btn.textContent = 'Enviar mensaje →';
+    btn.disabled = false;
+    alert('Error de conexión. Por favor intenta de nuevo.');
+  }
+});
+
+document.getElementById('cap-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('cap-submit-btn');
+  btn.textContent = 'Enviando...';
+  btn.disabled = true;
+  try {
+    const res = await fetch('https://formspree.io/f/xykoarbl', {
+      method: 'POST',
+      body: new FormData(this),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      document.getElementById('cap-form-fields').style.display = 'none';
+      document.getElementById('cap-success').style.display = 'block';
+    } else {
+      btn.textContent = 'Quiero capacitar a mi equipo →';
+      btn.disabled = false;
+      alert('Hubo un error. Por favor intenta de nuevo.');
+    }
+  } catch(err) {
+    btn.textContent = 'Quiero capacitar a mi equipo →';
     btn.disabled = false;
     alert('Error de conexión. Por favor intenta de nuevo.');
   }
