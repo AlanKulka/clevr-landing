@@ -1281,31 +1281,6 @@ document.getElementById('clevr-form').addEventListener('submit', async function(
   }
 });
 
-document.getElementById('cap-form').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  const btn = document.getElementById('cap-submit-btn');
-  btn.textContent = 'Enviando...';
-  btn.disabled = true;
-  try {
-    const res = await fetch('https://formspree.io/f/xykoarbl', {
-      method: 'POST',
-      body: new FormData(this),
-      headers: { 'Accept': 'application/json' }
-    });
-    if (res.ok) {
-      document.getElementById('cap-form-fields').style.display = 'none';
-      document.getElementById('cap-success').style.display = 'block';
-    } else {
-      btn.textContent = 'Quiero capacitar a mi equipo →';
-      btn.disabled = false;
-      alert('Hubo un error. Por favor intenta de nuevo.');
-    }
-  } catch(err) {
-    btn.textContent = 'Quiero capacitar a mi equipo →';
-    btn.disabled = false;
-    alert('Error de conexión. Por favor intenta de nuevo.');
-  }
-});
 
 /* ─── MONITOR INTERACTIVO ─── */
 const monitorScreen = document.getElementById('monitorScreen');
