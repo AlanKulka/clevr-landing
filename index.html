@@ -1498,7 +1498,7 @@ setTimeout(runDemo, 1500);
   }
 
   window.addEventListener('resize',()=>{ resize(); init(); });
-  if(window.innerWidth > 768){ resize(); init(); loop(); }
+  window.addEventListener('load',()=>{ resize(); init(); loop(); });
 })();
 </script>
 </body>
