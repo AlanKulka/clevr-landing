@@ -35,7 +35,9 @@ nav{
   border-bottom:1px solid rgba(0,0,0,.06);transition:box-shadow .3s
 }
 nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.06)}
-.nav-logo{font-size:22px;font-weight:900;color:var(--ink);text-decoration:none;letter-spacing:-1px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-text{font-size:21px;font-weight:800;color:var(--ink);letter-spacing:-.5px}
+.logo-text span{color:var(--orange)}
 nav ul{display:flex;gap:28px;list-style:none;align-items:center}
 nav ul a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
 nav ul a:hover{color:var(--ink)}
@@ -133,7 +135,9 @@ footer a:hover{color:#fff}
 <body>
 
 <nav id="nav">
-  <a href="/" class="nav-logo">clevr</a>
+  <a href="/" class="logo">
+    <span class="logo-text">clev<span>r</span></span>
+  </a>
   <ul>
     <li><a href="/#equipo">Equipo</a></li>
     <li><a href="/talleres.html" style="color:var(--indigo);font-weight:700">Talleres IA Empresa</a></li>
