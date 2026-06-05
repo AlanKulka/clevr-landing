@@ -40,8 +40,8 @@ nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.06)}
 .logo-text span{color:var(--orange)}
 nav ul{display:flex;gap:28px;list-style:none;align-items:center}
 nav ul a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
-nav ul a:hover{color:var(--ink)}
-.nav-cta{background:var(--indigo)!important;color:#fff!important;padding:9px 20px;border-radius:100px;font-size:13px;font-weight:700}
+nav ul a:hover{color:var(--indigo)}
+nav ul a.nav-active{color:var(--indigo);font-weight:700}
 .nav-mobile-btn{display:none;background:var(--indigo);border:none;color:#fff;padding:9px 18px;border-radius:100px;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;line-height:1}
 
 .container{max-width:1100px;margin:0 auto}
@@ -140,8 +140,8 @@ footer a:hover{color:#fff}
   </a>
   <ul>
     <li><a href="/#equipo">Equipo</a></li>
-    <li><a href="/talleres.html" style="color:var(--indigo);font-weight:700">Talleres IA Empresa</a></li>
-    <li><a href="/#contacto" class="nav-cta">Contacto</a></li>
+    <li><a href="/#contacto">Contacto</a></li>
+    <li><a href="/talleres.html" class="nav-active">Talleres IA Empresa</a></li>
   </ul>
 </nav>
 
