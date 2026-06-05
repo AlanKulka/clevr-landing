@@ -67,15 +67,9 @@ nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.06)}
 .logo-text span{color:var(--orange)}
 nav ul{display:flex;gap:28px;list-style:none;align-items:center}
 nav ul a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
-nav ul a:hover{color:var(--ink)}
-.nav-cta{
-  background:var(--indigo)!important;color:#fff!important;
-  padding:9px 22px;border-radius:100px;font-weight:700!important;
-  transition:all .2s!important;box-shadow:0 4px 14px rgba(249,115,22,.3)!important
-}
-.nav-cta:hover{background:#4338CA!important;transform:translateY(-1px);box-shadow:0 8px 24px rgba(249,115,22,.35)!important}
+nav ul a:hover{color:var(--indigo)}
+nav ul a.nav-active{color:var(--indigo);font-weight:700}
 .nav-mobile-btn{display:none;background:var(--indigo);color:#fff;border:none;padding:9px 18px;border-radius:100px;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;line-height:1;white-space:nowrap}
-.nav-mobile-orange{background:var(--indigo);color:#fff}
 
 /* ── HERO ── */
 #hero{
@@ -802,11 +796,11 @@ footer p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.9}
     <span class="logo-text">clev<span>r</span></span>
   </a>
   <ul>
-    <li><a href="#equipo">Equipo</a></li>
-    <li><a href="/talleres.html" style="color:var(--indigo);font-weight:700">Talleres IA Empresa</a></li>
-    <li><a href="#contacto" class="nav-cta">Contacto</a></li>
+    <li><a href="#equipo" data-section="equipo">Equipo</a></li>
+    <li><a href="/talleres.html" id="nav-talleres">Talleres IA Empresa</a></li>
+    <li><a href="#contacto" data-section="contacto">Contacto</a></li>
   </ul>
-  <a href="/talleres.html" class="nav-mobile-btn nav-mobile-orange">Talleres IA</a>
+  <a href="/talleres.html" class="nav-mobile-btn">Talleres IA</a>
 </nav>
 
 <!-- HERO -->
@@ -1230,6 +1224,16 @@ window.addEventListener('scroll',()=>{
   document.getElementById('nav').classList.toggle('scrolled',window.scrollY>40);
   document.getElementById('topBtn').classList.toggle('visible',window.scrollY>400);
 });
+
+/* ─── NAV ACTIVE SECTION ─── */
+const navSections = ['equipo','contacto'];
+const sectionObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    const link = document.querySelector(`[data-section="${e.target.id}"]`);
+    if(link){ link.classList.toggle('nav-active', e.isIntersecting); }
+  });
+},{threshold:0.3});
+navSections.forEach(id=>{ const el=document.getElementById(id); if(el) sectionObs.observe(el); });
 
 /* ─── SMOOTH SCROLL HELPER ─── */
 function scroll2(sel){ document.querySelector(sel).scrollIntoView({behavior:'smooth'}) }
