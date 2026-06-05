@@ -1498,8 +1498,7 @@ setTimeout(runDemo, 1500);
   }
 
   window.addEventListener('resize',()=>{ resize(); init(); });
-  function start(){ resize(); if(W>0 && H>0){ init(); loop(); } else { setTimeout(start,100); } }
-  if(document.readyState==='complete'){ start(); } else { window.addEventListener('load', start); }
+  if(window.innerWidth > 768){ resize(); init(); loop(); }
 })();
 </script>
 </body>
