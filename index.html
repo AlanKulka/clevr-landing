@@ -333,12 +333,12 @@ h2 .o{color:var(--orange)}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
 
 /* ── CLIENTES ── */
-.clients-bar{margin:32px 0 0}
-.clients-divider{width:100%;height:1px;background:rgba(255,255,255,.15);margin-bottom:24px}
-.clients-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:16px;display:block}
-.clients-static{display:flex;gap:16px;flex-wrap:wrap}
-.client-logo-wrap{background:#fff;border-radius:12px;padding:10px 20px;display:flex;align-items:center}
+.clients-section{padding:32px 48px;background:var(--bg1);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.clients-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:20px;display:block}
+.clients-static{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.client-logo-wrap{background:#fff;border:1px solid var(--border);border-radius:12px;padding:12px 24px;display:flex;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,.04)}
 .client-logo-wrap img{height:32px;width:auto}
+@media(max-width:768px){.clients-section{padding:28px 20px}}
 
 /* ── PROPUESTA ── */
 .prop-layout{display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:center;margin-top:64px}
@@ -871,14 +871,17 @@ footer p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.9}
     <div class="r" style="max-width:760px">
       <p class="slabel" style="color:rgba(255,255,255,0.4)">Lo que hacemos</p>
       <p class="experts-headline reveal" style="color:#fff">Somos expertos en <span class="gi">automatizar procesos manuales</span> e integrar <span class="gi">IA</span> en tu negocio.</p>
-      <div class="clients-bar">
-        <div class="clients-divider"></div>
-        <span class="clients-label">Ellos también confían en nosotros</span>
-        <div class="clients-static">
-          <div class="client-logo-wrap"><img src="imagenes/filteronline-logo.webp" alt="FilterOnline"></div>
-          <div class="client-logo-wrap"><img src="imagenes/cmlc-logo.png" alt="CMLC"></div>
-        </div>
-      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTES -->
+<section class="clients-section">
+  <div class="container">
+    <p class="clients-label">Ellos también confían en nosotros</p>
+    <div class="clients-static">
+      <div class="client-logo-wrap"><img src="imagenes/filteronline-logo.webp" alt="FilterOnline"></div>
+      <div class="client-logo-wrap"><img src="imagenes/cmlc-logo.png" alt="CMLC"></div>
     </div>
   </div>
 </section>
