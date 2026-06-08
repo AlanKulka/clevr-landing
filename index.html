@@ -307,20 +307,34 @@ h1{font-size:clamp(34px,4.5vw,64px);letter-spacing:-.5px}
 
 /* ── LOGOS BAND ── */
 #logos{
-  padding:32px 40px;background:var(--bg1);
-  border-top:1px solid var(--border);border-bottom:1px solid var(--border)
+  padding:40px 40px;
+  background:var(--ink);
+  border-top:1px solid rgba(255,255,255,.07);
+  border-bottom:1px solid rgba(255,255,255,.07);
 }
 .logos-inner{
-  max-width:900px;margin:0 auto;
-  display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap
+  max-width:1100px;margin:0 auto;
+  display:flex;flex-direction:column;align-items:center;gap:24px
 }
-.logos-label{font-size:12px;color:var(--muted);font-weight:500;letter-spacing:.5px;white-space:nowrap}
-.logo-pill{
-  display:flex;align-items:center;gap:7px;
-  font-size:13px;font-weight:600;color:var(--muted);padding:6px 14px;
-  background:#fff;border:1px solid var(--border);border-radius:100px
+.logos-label{
+  font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
+  color:rgba(255,255,255,.3)
 }
-.logo-pill span{font-size:16px}
+.logos-list{
+  display:flex;align-items:center;justify-content:center;
+  gap:24px;flex-wrap:wrap
+}
+.logo-card{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:14px;
+  padding:16px 36px;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s,border-color .2s
+}
+.logo-card:hover{background:rgba(255,255,255,.11);border-color:rgba(255,255,255,.22)}
+.logo-img{height:30px;width:auto;object-fit:contain;display:block;opacity:.8;transition:opacity .2s}
+.logo-card:hover .logo-img{opacity:1}
 
 /* ── SHARED ── */
 section{padding:96px 40px}
@@ -746,6 +760,10 @@ footer p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.9}
   .hero-stats{gap:24px}
   .nichos-g{grid-template-columns:1fr!important}
   .team-g{grid-template-columns:1fr!important}
+  #logos{padding:28px 20px}
+  .logos-inner{gap:16px}
+  .logo-card{padding:12px 24px}
+  .logo-img{height:24px}
 }
 @media(max-width:400px){
   h1{font-size:clamp(28px,8vw,40px);letter-spacing:-.5px}
@@ -870,6 +888,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.9}
 
 </section>
 
+
 <div class="div"></div>
 
 <!-- EXPERTOS SECTION -->
@@ -881,6 +900,18 @@ footer p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.9}
     </div>
   </div>
 </section>
+
+<!-- HAN CONFIADO EN NOSOTROS -->
+<div id="logos">
+  <div class="logos-inner">
+    <span class="logos-label">Han confiado en nosotros</span>
+    <div class="logos-list">
+      <div class="logo-card">
+        <img src="imagenes/filteronline-logo.webp" alt="FilterOnline" class="logo-img">
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="div"></div>
 
