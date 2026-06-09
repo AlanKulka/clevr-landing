@@ -336,11 +336,16 @@ h2 .o{color:var(--orange)}
 .clients-bar{margin-top:32px}
 .clients-divider{width:100%;height:1px;background:rgba(255,255,255,.18);margin-bottom:20px}
 .clients-lbl{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.35);display:block;margin-bottom:14px}
-.clients-inner{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.client-logo-wrap{background:#fff;border-radius:10px;padding:8px 18px;display:flex;align-items:center;justify-content:center}
+.clients-track-wrap{overflow:hidden;position:relative;max-width:500px}
+.clients-track-wrap::before,.clients-track-wrap::after{content:'';position:absolute;top:0;bottom:0;width:48px;z-index:2;pointer-events:none}
+.clients-track-wrap::before{left:0;background:linear-gradient(90deg,var(--ink),transparent)}
+.clients-track-wrap::after{right:0;background:linear-gradient(-90deg,var(--ink),transparent)}
+.clients-inner{display:flex;align-items:center;gap:14px;width:max-content;animation:marquee-logos 12s linear infinite}
+.clients-inner:hover{animation-play-state:paused}
+@keyframes marquee-logos{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.client-logo-wrap{background:#fff;border-radius:10px;padding:8px 18px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .client-logo-wrap img{height:36px;width:auto;display:block}
-.client-logo-grey img{height:22px;filter:grayscale(1);opacity:.55}
-@media(max-width:768px){.clients-bar{margin-top:24px}}
+@media(max-width:768px){.clients-bar{margin-top:24px}.clients-track-wrap{max-width:100%}}
 
 /* ── PROPUESTA ── */
 .prop-layout{display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:center;margin-top:64px}
@@ -876,9 +881,13 @@ footer p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.9}
       <div class="clients-bar">
         <div class="clients-divider"></div>
         <span class="clients-lbl">Confían en nosotros</span>
-        <div class="clients-inner">
-          <div class="client-logo-wrap" style="background:#29ABE2"><img src="imagenes/filteronline-logo.webp" alt="FilterOnline"></div>
-          <div class="client-logo-wrap"><img src="imagenes/cmlc-logo.png" alt="CMLC"></div>
+        <div class="clients-track-wrap">
+          <div class="clients-inner">
+            <div class="client-logo-wrap" style="background:#29ABE2"><img src="imagenes/filteronline-logo.webp" alt="FilterOnline"></div>
+            <div class="client-logo-wrap"><img src="imagenes/cmlc-logo.png" alt="CMLC"></div>
+            <div class="client-logo-wrap" style="background:#29ABE2"><img src="imagenes/filteronline-logo.webp" alt="FilterOnline"></div>
+            <div class="client-logo-wrap"><img src="imagenes/cmlc-logo.png" alt="CMLC"></div>
+          </div>
         </div>
       </div>
     </div>
