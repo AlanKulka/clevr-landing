@@ -136,6 +136,14 @@ h1{
 .gt{background:linear-gradient(135deg,#F97316,#FB923C);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .go{background:linear-gradient(135deg,#F97316,#DC2626);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-sub{font-size:clamp(20px,2.2vw,28px);font-weight:500;color:var(--muted);max-width:600px;margin:32px auto 40px;line-height:1.5;letter-spacing:-.2px}
+.hero-cursor{display:inline-block;color:var(--orange);animation:blink .7s step-end infinite;font-weight:300}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.hero-solution{opacity:0;transition:opacity .8s ease}
+.hero-solution.visible{opacity:1}
+.hero-sub-anim{opacity:0;transform:translateY(12px);transition:opacity .7s ease,transform .7s ease}
+.hero-sub-anim.visible{opacity:1;transform:translateY(0)}
+.hero-btns-anim{opacity:0;transform:translateY(12px);transition:opacity .7s ease .15s,transform .7s ease .15s}
+.hero-btns-anim.visible{opacity:1;transform:translateY(0)}
 .hero-sub strong{color:var(--ink2);font-weight:600}
 .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .btn-p{
@@ -814,16 +822,15 @@ footer p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.9}
 
   <div class="hero-inner">
     <h1>
-      ¿Procesos manuales<br>
-      en tu negocio?<br>
-      <span class="gi">Creamos la solución<br>que los resuelve.</span>
+      <span id="hero-typed"></span><span class="hero-cursor">|</span><br>
+      <span class="gi hero-solution" id="hero-solution">Creamos la solución<br>que los resuelve.</span>
     </h1>
 
-    <p class="hero-sub">
+    <p class="hero-sub hero-sub-anim">
       Democratizamos el acceso a la <span class="gi">IA</span> para pymes.
     </p>
 
-    <div class="btns">
+    <div class="btns hero-btns-anim">
       <a href="#contacto" class="btn-p" onclick="document.querySelector('#contacto').scrollIntoView({behavior:'smooth'});return false;">Conversemos →</a>
     </div>
 
@@ -1486,6 +1493,30 @@ setTimeout(runDemo, 1500);
 
   window.addEventListener('resize',()=>{ resize(); init(); });
   if(window.innerWidth > 768){ resize(); init(); loop(); }
+})();
+
+// ── TYPEWRITER HERO ──
+(function(){
+  const text = '¿Procesos manuales\nen tu negocio?';
+  const el = document.getElementById('hero-typed');
+  const solution = document.getElementById('hero-solution');
+  const sub = document.querySelector('.hero-sub-anim');
+  const btns = document.querySelector('.hero-btns-anim');
+  let i = 0;
+  function type(){
+    if(i <= text.length){
+      el.innerHTML = text.slice(0,i).replace('\n','<br>');
+      i++;
+      setTimeout(type, i < 10 ? 60 : 45);
+    } else {
+      document.querySelector('.hero-cursor').style.display = 'none';
+      setTimeout(()=>{
+        solution.classList.add('visible');
+        setTimeout(()=>{ sub.classList.add('visible'); btns.classList.add('visible'); }, 400);
+      }, 200);
+    }
+  }
+  setTimeout(type, 300);
 })();
 </script>
 </body>
