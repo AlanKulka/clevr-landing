@@ -257,10 +257,10 @@ document.getElementById('cap-form').addEventListener('submit', async function(e)
   btn.textContent = 'Enviando...';
   btn.disabled = true;
   try {
-    const res = await fetch('https://formspree.io/alan@clevr.cl', {
+    const res = await fetch('https://formsubmit.co/ajax/alan@clevr.cl', {
       method: 'POST',
-      body: new FormData(this),
-      headers: { 'Accept': 'application/json' }
+      body: JSON.stringify(Object.fromEntries(new FormData(this))),
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
     });
     if (res.ok) {
       document.getElementById('cap-form-fields').style.display = 'none';
