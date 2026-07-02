@@ -159,7 +159,7 @@ footer a:hover{color:#fff}
 <section class="features-section">
   <div class="container">
     <p class="slabel">Por qué Clevr</p>
-    <h2>Lo que hace diferente<br><span class="i">nuestros talleres</span></h2>
+    <h2>Lo que hace diferente<br><span class="i">nuestras capacitaciones</span></h2>
     <div class="features-grid">
       <div class="feat-card">
         <div class="feat-icon">🎯</div>
@@ -169,12 +169,12 @@ footer a:hover{color:#fff}
       <div class="feat-card">
         <div class="feat-icon">⚡</div>
         <h3>Resultados desde el día 1</h3>
-        <p>Tu equipo sale del taller aplicando herramientas de IA en sus tareas reales. Sin teoría innecesaria.</p>
+        <p>Tu equipo sale de la capacitación aplicando herramientas de IA en sus tareas reales. Sin teoría innecesaria.</p>
       </div>
       <div class="feat-card">
         <div class="feat-icon">🤝</div>
         <h3>Para todos los niveles</h3>
-        <p>No importa si tu equipo nunca usó IA antes. Los talleres están diseñados para cualquier nivel técnico.</p>
+        <p>No importa si tu equipo nunca usó IA antes. Las capacitaciones están diseñadas para cualquier nivel técnico.</p>
       </div>
     </div>
   </div>
@@ -199,19 +199,19 @@ footer a:hover{color:#fff}
           </div>
           <div style="display:flex;gap:12px;align-items:center">
             <div style="width:32px;height:32px;background:var(--orange-l);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--indigo);flex-shrink:0">3</div>
-            <p style="color:var(--ink);font-size:15px">Coordinamos el taller para tu equipo</p>
+            <p style="color:var(--ink);font-size:15px">Coordinamos la capacitación para tu equipo</p>
           </div>
         </div>
       </div>
       <div class="form-card">
-        <p class="slabel">Solicita tu taller</p>
+        <p class="slabel">Solicita tu capacitación</p>
         <h3 style="margin-bottom:24px">Cuéntanos sobre tu empresa</h3>
         <div id="cap-form-fields">
           <form id="cap-form">
             <div class="frow">
               <div class="field">
                 <label for="c-empresa">Nombre de la empresa</label>
-                <input type="text" id="c-empresa" name="empresa" placeholder="Ej: Taller López SpA" required>
+                <input type="text" id="c-empresa" name="empresa" placeholder="Ej: Empresa SpA" required>
               </div>
               <div class="field">
                 <label for="c-personas">¿Cuántas personas?</label>
@@ -223,11 +223,11 @@ footer a:hover{color:#fff}
               <input type="email" id="c-email" name="email" placeholder="tu@empresa.cl" required>
             </div>
             <div class="field">
-              <label for="c-objetivo">Objetivo del taller</label>
+              <label for="c-objetivo">Objetivo de la capacitación</label>
               <textarea id="c-objetivo" name="objetivo" rows="3" placeholder="Ej: Que mi equipo de ventas use IA para responder clientes más rápido..."></textarea>
             </div>
             <input type="hidden" name="tipo" value="taller-ia-empresa">
-            <button type="submit" class="fsubmit" id="cap-submit-btn">Quiero un taller para mi equipo →</button>
+            <button type="submit" class="fsubmit" id="cap-submit-btn">Quiero una capacitación para mi equipo →</button>
           </form>
         </div>
         <div class="fsuccess" id="cap-success">
@@ -266,12 +266,12 @@ document.getElementById('cap-form').addEventListener('submit', async function(e)
       document.getElementById('cap-form-fields').style.display = 'none';
       document.getElementById('cap-success').style.display = 'block';
     } else {
-      btn.textContent = 'Quiero un taller para mi equipo →';
+      btn.textContent = 'Quiero una capacitación para mi equipo →';
       btn.disabled = false;
       alert('Hubo un error. Por favor intenta de nuevo.');
     }
   } catch(err) {
-    btn.textContent = 'Quiero un taller para mi equipo →';
+    btn.textContent = 'Quiero una capacitación para mi equipo →';
     btn.disabled = false;
     alert('Error de conexión. Por favor intenta de nuevo.');
   }
